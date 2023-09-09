@@ -10,6 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: radial-gradient(circle, #0b456b, #021c37);
 }
 
 .clock {
@@ -21,7 +22,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle, #05263c, #000d1a);
 
+}
+
+.clock::before{
+    content: "";
+    width: 525px;
+    height: 525px;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(to right, #00d9ff, #ee00ff);
+    box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.2);
+    z-index: -1;
 }
 
 .number {
@@ -30,4 +43,53 @@ body {
     text-align: center;
     inset: 20px;
     font-size: 40px;
+    color: #00d9ff;
+    text-shadow: 0 0 12px #ee00ff;
 }
+
+.number b {
+    transform: rotate(calc(-30deg * var(--n)));
+    display: inline-block;
+}
+
+.center-dot {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #ee00ff;
+    border: 6px solid #00d9ff;
+    border-radius: 50%;
+}
+
+/* Vos styles CSS existants ici */
+
+.hour-hand, .minute-hand, .second-hand {
+    position: absolute;
+    transform-origin: 50% 100%; /* Centrer verticalement au bas de l'élément */
+    border-radius: 30px 30px 0 0;
+}
+
+.hour-hand {
+    width: 10px;
+    height: 80px;
+    background: linear-gradient( #00d9ff, #ee00ff);
+    left: calc(50% - 5px); /* Centrer horizontalement */
+    top: calc(50% - 80px); /* Ajuster la position verticale */
+}
+
+.minute-hand {
+    width: 6px;
+    height: 120px;
+    background: linear-gradient( to top, #00d9ff, #ee00ff);
+    left: calc(50% - 3px); /* Centrer horizontalement */
+    top: calc(50% - 120px); /* Ajuster la position verticale */
+}
+
+.second-hand {
+    width: 3px;
+    height: 140px;
+    background: linear-gradient( to top, #00d9ff, #ee00ff);
+    left: calc(50% - 1.5px); /* Centrer horizontalement */
+    top: calc(50% - 140px); /* Ajuster la position verticale */
+}
+
